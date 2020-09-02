@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { PlanetDetailComponent } from './planet-detail/planet-detail.component';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'planets-app';
+
+  constructor(){}
+
+  public deletPlanet(){
+     
+  }
 }

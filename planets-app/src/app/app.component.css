@@ -1,0 +1,20 @@
+.solarSystem{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+}
+.sun{
+    position: absolute;
+    width:  300px;
+    height: 300px;
+    margin-top: 100px;
+}
+
+.planets{
+    position: absolute;
+    margin-top: 230px;
+    margin-left: 17%;   
+}
+
+
+

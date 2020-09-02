@@ -1,6 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { Planet } from '../planet';
 import { PlanetService } from '../planet.service';
+import { PlanetsCreateComponent } from '../planets-create/planets-create.component';
 
 @Component({
   selector: 'app-planet-detail',
@@ -10,19 +11,39 @@ import { PlanetService } from '../planet.service';
 export class PlanetDetailComponent implements OnInit {
 
   @Input()
-  Planet: Planet;
+  planet: Planet;
 
-  constructor(public PlanetService: PlanetService) { }
+  @Output()
+  clicked: EventEmitter<number> = new EventEmitter<number>();
+
+  constructor(public PlanetService: PlanetService) { 
+
+  }
 
   ngOnInit(): void {
   }
 
-  public deletePlanet(){
-
+  public planetClicked(value: MouseEvent){
+    event.preventDefault();
+    this.clicked.emit(this.PlanetService.Planets.indexOf(this.planet));
   }
 
-  public editPlanet(){
+  public deletePlanet(planetNum : number){
+    this.PlanetService.Planets.splice(planetNum, 1);
+  }
+
+  public editPlanet(planetNum : number){
+    this.PlanetService.Planets
     
+  }
+
+  public getImage(){
+    return this.planet.Image;
+  }
+
+  public getImgMarginLeft(){
+    
+    return this.planet.DistanceFromTheSun;
   }
 
 }

@@ -1,1 +1,4 @@
-<p>{{Planet.Name}} & {{Planet.DistanceFromTheSun}}</p>
+<div [style.marginLeft.%]="getImgMarginLeft()">
+    <img [src]= "getImage()"  />
+    <p>{{planet.Name}} {{planet.DistanceFromTheSun}}</p>
+</div>
