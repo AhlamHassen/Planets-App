@@ -12,7 +12,7 @@
         </div>
     </div>
 
-    <div class="editBox" *ngIf="editing === true" [hidden]="submitted">
+    <div class="editBox" *ngIf="editing" [hidden]="submitted === true">
 
       <form (ngSubmit)="onSubmit()" #planetForm="ngForm">
 

@@ -23,6 +23,15 @@ export class PlanetDetailComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  public getImage(){
+    return this.planet.Image;
+  }
+
+  public getImgMarginLeft(){
+    
+    return this.planet.DistanceFromTheSun;
+  }
+
   public planetClicked(){
    
     if(this.clicked == true){
@@ -40,19 +49,15 @@ export class PlanetDetailComponent implements OnInit {
     this.PlanetService.Planets.splice(this.currentPlanet, 1);
   }
 
-  public editPlanet(planetNum : number){
-    if(this.editing == true){
-      this.editing = false;
-    }
-    else{
-      this.editing = true;
-    }
-    
-    // this.editing != this.editing;
+  public editPlanet(planetNum : number){  
+    this.editing = true;
+    this.submitted = false;
+
   }
 
   public onSubmit(){
     this.submitted = true;
+    this.editing = false;
   }
 
   get diagnostic() { 
@@ -62,15 +67,6 @@ export class PlanetDetailComponent implements OnInit {
   showFormControls(form: any) {
     return form && form.controls['name'] &&
     form.controls['name'].value; 
-  }
-
-  public getImage(){
-    return this.planet.Image;
-  }
-
-  public getImgMarginLeft(){
-    
-    return this.planet.DistanceFromTheSun;
   }
 
 }
