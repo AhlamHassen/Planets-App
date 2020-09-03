@@ -1,6 +1,11 @@
 <div [style.marginLeft.%]="getImgMarginLeft()" class="mainDiv" (click)="planetClicked()">
     <div class="planetImage">
-        <img [src]="getImage()" />
+        <div>
+            <img [src]="getImage()" />
+        </div>
+        <div class="moonDiv">
+            <img src="../../assets/moon.png" class="moon" *ngIf="hasMoon === true" class="moon" >&nbsp;
+        </div>
     </div>
 
     <div class="iconContainer" *ngIf="clicked === true">

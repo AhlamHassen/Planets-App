@@ -54,3 +54,18 @@ img{
     background-color: #feb654;
     color: black;
 }
+
+.planetImage{
+    position: relative;
+}
+
+.moon{
+    width: 8px;
+    height: 8px;
+}
+
+.moonDiv{
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+}
