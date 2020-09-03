@@ -1,4 +1,16 @@
-<div [style.marginLeft.%]="getImgMarginLeft()">
-    <img [src]= "getImage()"  />
+<div [style.marginLeft.%]="getImgMarginLeft()" (click)="planetClicked()">
+    <div class="planetImage">
+        <img [src]="getImage()" />
+    </div>
+    
+    <div class="iconContainer" *ngIf="clicked == true">
+        <div>
+            <img src="../../assets/edit.svg" class="icons" />
+        </div>
+        <div (click)="deletePlanet()" >
+            <img src="../../assets/x.svg" class="icons deleteIcon" />
+        </div>
+    </div>
+
     <p>{{planet.Name}} {{planet.DistanceFromTheSun}}</p>
 </div>

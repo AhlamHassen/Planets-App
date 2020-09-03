@@ -13,29 +13,36 @@ export class PlanetDetailComponent implements OnInit {
   @Input()
   planet: Planet;
 
-  @Output()
-  clicked: EventEmitter<number> = new EventEmitter<number>();
+  clicked : boolean = false;
 
-  constructor(public PlanetService: PlanetService) { 
+  currentPlanet : number;
 
-  }
-
+  constructor(public PlanetService: PlanetService) { }
   ngOnInit(): void {
   }
 
-  public planetClicked(value: MouseEvent){
-    event.preventDefault();
-    this.clicked.emit(this.PlanetService.Planets.indexOf(this.planet));
+  public planetClicked(){
+   
+    if(this.clicked == true){
+      this.clicked = false;
+    }
+    else{
+      this.clicked = true;
+    }
+    // this.clicked != this.clicked;
+
+    this.currentPlanet = this.PlanetService.Planets.indexOf(this.planet);
   }
 
-  public deletePlanet(planetNum : number){
-    this.PlanetService.Planets.splice(planetNum, 1);
+  public deletePlanet(){
+    this.PlanetService.Planets.splice(this.currentPlanet, 1);
   }
 
   public editPlanet(planetNum : number){
     this.PlanetService.Planets
     
   }
+
 
   public getImage(){
     return this.planet.Image;

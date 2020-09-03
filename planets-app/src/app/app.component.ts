@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Injectable } from '@angular/core';
 import { PlanetDetailComponent } from './planet-detail/planet-detail.component';
 
 @Component({
@@ -6,12 +6,11 @@ import { PlanetDetailComponent } from './planet-detail/planet-detail.component';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
 export class AppComponent {
   title = 'planets-app';
+  planetDetail : PlanetDetailComponent;
 
   constructor(){}
 
-  public deletPlanet(){
-     
-  }
 }

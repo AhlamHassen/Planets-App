@@ -1,4 +1,23 @@
 img{
     width: 50px;
     height: 50px;
+    cursor: pointer;
+}
+
+.icons{
+    width: 13px;
+    height: 13px;
+}
+
+.iconContainer{
+    width: 60px;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.icons:hover{
+    filter: invert(27%) sepia(93%) saturate(7403%) 
+    hue-rotate(356deg) brightness(102%) contrast(114%);
+    
 }
