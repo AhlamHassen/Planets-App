@@ -1,1 +1,25 @@
-<p>planets-create works!</p>
+<div>
+    <button (click)="createPlanet()">Create a Planet</button>
+
+    <div class="createBox" *ngIf="creating" [hidden]="submitted === true">
+
+        <form (ngSubmit)="onSubmit()" #planetForm="ngForm">
+    
+          <input type="text" placeholder="Planet name"  [(ngModel)]="createdplanet.Name" 
+          name="Name" #name="ngModel" />
+    
+          <input type="text" placeholder="Number of moon" [(ngModel)]="createdplanet.Moons" 
+          name="Moons"  #name="ngModel"/>
+    
+          <input type="text" placeholder="Distance from sun" [(ngModel)]="createdplanet.DistanceFromTheSun" 
+          name="DistanceFromTheSun" #name="ngModel"/>
+    
+          <input type="text" placeholder="Image name" [(ngModel)]="createdplanet.Image" 
+          name="Image" #name="ngModel"/><br><br>
+    
+          <button type="submit" class="save" >Save</button>
+        </form>
+      </div>
+    
+
+</div>

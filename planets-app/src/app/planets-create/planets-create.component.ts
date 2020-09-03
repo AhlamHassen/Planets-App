@@ -8,16 +8,29 @@ import { PlanetService } from '../planet.service';
   styleUrls: ['./planets-create.component.css']
 })
 export class PlanetsCreateComponent implements OnInit {
-  ceatedPlanet: Planet;
+  createdplanet: Planet = new Planet("New Planet", 0, 200,"../../assets/venus.png");
+  creating: boolean = false;
+  submitted: boolean = false;
 
   constructor(public PlanetService: PlanetService) { }
 
   ngOnInit(): void {
   }
 
-  public createPlanet(name:string, moon:number, distance:number, img:string ){
-    this.ceatedPlanet = new Planet(name, moon, distance, img );
-    this.PlanetService.addPlanet(this.ceatedPlanet);
+  public createPlanet(){ 
+    this.creating = true;
+    this.submitted = false;
+  }
+
+  showFormControls(form: any) {
+    return form && form.controls['name'] &&
+    form.controls['name'].value; 
+  }
+
+  onSubmit(){
+    this.submitted = true;
+    this.creating = false;
+    this.PlanetService.Planets.push(this.createdplanet);
   }
 
 }

@@ -16,7 +16,6 @@ export class PlanetDetailComponent implements OnInit {
   clicked : boolean = false;
   currentPlanet : number;
   editing : boolean = false;
-  text: string;
   submitted: boolean = false;
 
   constructor(public PlanetService: PlanetService) { }
@@ -60,9 +59,10 @@ export class PlanetDetailComponent implements OnInit {
     this.editing = false;
   }
 
-  get diagnostic() { 
-    return JSON.stringify(this.planet); 
-  }
+  // get diagnostic() { 
+  //   return JSON.stringify(this.planet); 
+  // } 
+  //returns the object and its details in a string form
 
   showFormControls(form: any) {
     return form && form.controls['name'] &&

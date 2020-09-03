@@ -1,5 +1,5 @@
 import { Component, Injectable } from '@angular/core';
-import { PlanetDetailComponent } from './planet-detail/planet-detail.component';
+import { Planet } from './planet';
 
 @Component({
   selector: 'app-root',
@@ -9,8 +9,8 @@ import { PlanetDetailComponent } from './planet-detail/planet-detail.component';
 
 export class AppComponent {
   title = 'planets-app';
-  planetDetail : PlanetDetailComponent;
-
+  
   constructor(){}
+
 
 }

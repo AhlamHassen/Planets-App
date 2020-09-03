@@ -16,11 +16,11 @@ export class PlanetService {
   constructor() {}
   
 
-   public addPlanet(planet : Planet){
+   public addPlanet(planet: Planet){
       this.Planets.push(planet);
    }
 
    public sortPlanet(){
-    // this.Planets.sort.
+    // ask Lachie how to sort the planets and what sort critera should you use
    }
 }

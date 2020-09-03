@@ -15,6 +15,7 @@
     <div class="editBox" *ngIf="editing" [hidden]="submitted === true">
 
       <form (ngSubmit)="onSubmit()" #planetForm="ngForm">
+       <!--{{diagnostic}} -- if you want to get the object in a string from--> 
 
         <input type="text" placeholder="Planet name"  [(ngModel)]="planet.Name" 
         name="Name" #name="ngModel" />
@@ -31,6 +32,7 @@
         <button type="submit" class="save" >Save</button>
       </form>
     </div>
+    
     <div class="planetInfo">
         <p>{{planet.Name}} {{planet.DistanceFromTheSun}}</p>
     </div>
