@@ -1,16 +1,37 @@
-<div [style.marginLeft.%]="getImgMarginLeft()" (click)="planetClicked()">
+<div [style.marginLeft.%]="getImgMarginLeft()" class="mainDiv" (click)="planetClicked()">
     <div class="planetImage">
         <img [src]="getImage()" />
     </div>
-    
-    <div class="iconContainer" *ngIf="clicked == true">
-        <div>
+
+    <div class="iconContainer" *ngIf="clicked === true">
+        <div (click)="editPlanet()">
             <img src="../../assets/edit.svg" class="icons" />
         </div>
-        <div (click)="deletePlanet()" >
-            <img src="../../assets/x.svg" class="icons deleteIcon" />
+        <div (click)="deletePlanet()">
+            <img src="../../assets/x.svg" class="icons" />
         </div>
     </div>
 
-    <p>{{planet.Name}} {{planet.DistanceFromTheSun}}</p>
+    <div class="editBox" *ngIf="editing === true" [hidden]="submitted">
+
+      <form (ngSubmit)="onSubmit()" #planetForm="ngForm">
+
+        <input type="text" placeholder="Planet name"  [(ngModel)]="planet.Name" 
+        name="Name" #name="ngModel" />
+
+        <input type="text" placeholder="Number of moon" [(ngModel)]="planet.Moons" 
+        name="Moons"  #name="ngModel"/>
+
+        <input type="text" placeholder="Distance from sun" [(ngModel)]="planet.DistanceFromTheSun" 
+        name="DistanceFromTheSun" #name="ngModel"/>
+
+        <input type="text" placeholder="Image name" [(ngModel)]="planet.Image" 
+        name="Image" #name="ngModel"/><br><br>
+
+        <button type="submit" class="save" >Save</button>
+      </form>
+    </div>
+    <div class="planetInfo">
+        <p>{{planet.Name}} {{planet.DistanceFromTheSun}}</p>
+    </div>
 </div>

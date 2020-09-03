@@ -14,8 +14,10 @@ export class PlanetDetailComponent implements OnInit {
   planet: Planet;
 
   clicked : boolean = false;
-
   currentPlanet : number;
+  editing : boolean = false;
+  text: string;
+  submitted: boolean = false;
 
   constructor(public PlanetService: PlanetService) { }
   ngOnInit(): void {
@@ -39,10 +41,28 @@ export class PlanetDetailComponent implements OnInit {
   }
 
   public editPlanet(planetNum : number){
-    this.PlanetService.Planets
+    if(this.editing == true){
+      this.editing = false;
+    }
+    else{
+      this.editing = true;
+    }
     
+    // this.editing != this.editing;
   }
 
+  public onSubmit(){
+    this.submitted = true;
+  }
+
+  get diagnostic() { 
+    return JSON.stringify(this.planet); 
+  }
+
+  showFormControls(form: any) {
+    return form && form.controls['name'] &&
+    form.controls['name'].value; 
+  }
 
   public getImage(){
     return this.planet.Image;
