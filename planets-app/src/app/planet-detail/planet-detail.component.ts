@@ -12,6 +12,7 @@ export class PlanetDetailComponent implements OnInit {
 
   @Input()
   planet: Planet;
+  planetEditing : Planet;
 
   clicked: boolean = false;
   currentPlanet: number;
@@ -56,12 +57,14 @@ export class PlanetDetailComponent implements OnInit {
   public editPlanet(planetNum : number){
   this.editing = true;
   this.submitted = false;
+  this.planetEditing ={...this.planet};
 
 }
 
   public onSubmit(){
   this.submitted = true;
   this.editing = false;
+  Object.assign(this.planet, this.planetEditing);
 }
 
 // get diagnostic() { 

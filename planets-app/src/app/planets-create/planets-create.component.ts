@@ -30,7 +30,10 @@ export class PlanetsCreateComponent implements OnInit {
   onSubmit(){
     this.submitted = true;
     this.creating = false;
+    console.log(this.createdplanet);
     this.PlanetService.Planets.push(this.createdplanet);
+    this.createdplanet =  new Planet("New Planet", 0, 200,"../../assets/venus.png");
+
   }
 
 }
