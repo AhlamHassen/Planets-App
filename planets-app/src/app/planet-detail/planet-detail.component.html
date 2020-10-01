@@ -4,7 +4,7 @@
             <img [src]="getImage()" />
         </div>
         <div class="moonDiv">
-            <img src="../../assets/moon.png" class="moon" *ngIf="hasMoon === true" class="moon" >&nbsp;
+            <img src="../../assets/moon.png" class="moon" *ngIf="hasMoon === true" class="moon">&nbsp;
         </div>
     </div>
 
@@ -19,25 +19,25 @@
 
     <div class="editBox" *ngIf="editing" [hidden]="submitted === true">
 
-      <form (ngSubmit)="onSubmit()" #planetForm="ngForm">
-       <!--{{diagnostic}} -- if you want to get the object in a string from--> 
+        <form (ngSubmit)="onSubmit()" #planetForm="ngForm">
+            <!--{{diagnostic}} -- if you want to get the object in a string from-->
 
-        <input type="text" placeholder="Planet name"  [(ngModel)]="planetEditing.Name" 
-        name="Name" #name="ngModel" />
+            <input type="text" placeholder="Planet name" [(ngModel)]="planetEditing.Name" name="Name" #name="ngModel" />
 
-        <input type="number" placeholder="Number of moon" [(ngModel)]="planetEditing.Moons" 
-        name="Moons"  #name="ngModel"/>
+            <input type="number" placeholder="Number of moon" [(ngModel)]="planetEditing.Moons" name="Moons"
+                #name="ngModel" />
 
-        <input type="number" placeholder="Distance from sun" [(ngModel)]="planetEditing.DistanceFromTheSun" 
-        name="DistanceFromTheSun" #name="ngModel"/>
+            <input type="number" placeholder="Distance from sun" [(ngModel)]="planetEditing.DistanceFromTheSun"
+                name="DistanceFromTheSun" #name="ngModel" />
 
-        <input type="text" placeholder="Image name" [(ngModel)]="planetEditing.Image" 
-        name="Image" #name="ngModel"/><br><br>
+            <input type="text" placeholder="Image name" [(ngModel)]="planetEditing.Image" name="Image"
+                #name="ngModel" /><br><br>
 
-        <button type="submit" class="save" >Save</button>
-      </form>
+            <button type="submit" class="save">Save</button>
+        </form>
+
     </div>
-    
+
     <div class="planetInfo">
         <p>{{planet.Name}} {{planet.DistanceFromTheSun}}</p>
     </div>

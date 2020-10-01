@@ -12,7 +12,7 @@ export class PlanetDetailComponent implements OnInit {
 
   @Input()
   planet: Planet;
-  planetEditing : Planet;
+  planetEditing: Planet;
 
   clicked: boolean = false;
   currentPlanet: number;
@@ -22,60 +22,60 @@ export class PlanetDetailComponent implements OnInit {
 
   constructor(public PlanetService: PlanetService) { }
   ngOnInit(): void {
-    
+
     if (this.planet.Moons != 0) {
       this.hasMoon = true;
     }
-}
-
-  public getImage(){
-  return this.planet.Image;
-}
-
-  public getImgMarginLeft(){
-
-  return this.planet.DistanceFromTheSun;
-}
-
-  public planetClicked(){
-
-  if (this.clicked == true) {
-    this.clicked = false;
   }
-  else {
-    this.clicked = true;
+
+  public getImage() {
+    return this.planet.Image;
   }
-  // this.clicked != this.clicked;
 
-  this.currentPlanet = this.PlanetService.Planets.indexOf(this.planet);
-}
+  public getImgMarginLeft() {
 
-  public deletePlanet(){
-  this.PlanetService.Planets.splice(this.currentPlanet, 1);
-}
+    return this.planet.DistanceFromTheSun;
+  }
 
-  public editPlanet(planetNum : number){
-  this.editing = true;
-  this.submitted = false;
-  this.planetEditing ={...this.planet};
+  public planetClicked() {
 
-}
+    if (this.clicked == true) {
+      this.clicked = false;
+    }
+    else {
+      this.clicked = true;
+    }
+    // this.clicked != this.clicked;
 
-  public onSubmit(){
-  this.submitted = true;
-  this.editing = false;
-  Object.assign(this.planet, this.planetEditing);
-}
+    this.currentPlanet = this.PlanetService.Planets.indexOf(this.planet);
+  }
 
-// get diagnostic() { 
-//   return JSON.stringify(this.planet); 
-// } 
-//returns the object and its details in a string form
+  public deletePlanet() {
+    this.PlanetService.Planets.splice(this.currentPlanet, 1);
+  }
 
-showFormControls(form: any) {
-  return form && form.controls['name'] &&
-    form.controls['name'].value;
-}
+  public editPlanet(planetNum: number) {
+    this.editing = true;
+    this.submitted = false;
+    this.planetEditing = { ...this.planet };
+
+  }
+
+  public onSubmit() {
+    this.submitted = true;
+    this.editing = false;
+    Object.assign(this.planet, this.planetEditing);
+  }
+
+  // get diagnostic() { 
+  //   return JSON.stringify(this.planet); 
+  // } 
+  //returns the object and its details in a string form
+
+  showFormControls(form: any) {
+    return form && form.controls['name'] &&
+      form.controls['name'].value;
+  }
 
 
 }
